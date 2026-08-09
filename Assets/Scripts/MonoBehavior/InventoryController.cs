@@ -6,7 +6,7 @@ public class InventoryController : MonoBehaviour
     [SerializeField] private GameObject Slot;
     [SerializeField] private GameObject parentsMenu;
     [SerializeField] private int Inventorysize;
-    public ItemDex m_ItemDex;//starteritem
+    
     [SerializeField] private GameObject PauseMenu;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,8 +18,7 @@ public class InventoryController : MonoBehaviour
         }
         //SetItem(Slot,Inventorysize);
 
-        SetItem(m_ItemDex.itemdex[0],10);
-        SetItem(m_ItemDex.itemdex[1],5);
+        
         PauseMenu.gameObject.SetActive(false);
     }//end of func
 

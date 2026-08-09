@@ -21,17 +21,17 @@ public class Item : MonoBehaviour
         if (pointerData.button == PointerEventData.InputButton.Right)
         {
             DropItem();
+            Destroy(this.gameObject);
         }
     }
 
     
-    private void DropItem()
+    public void DropItem()
     {
         GameObject PhysicalItem = Instantiate(PrefabPhysicalObject,GameObject.Find("Player").transform.position + new Vector3(2f,2f,0),GameObject.Find("Player").transform.rotation);
         PhysicalItem.GetComponent<PhysicalItem>().PI_icon = icon;
         PhysicalItem.GetComponent<PhysicalItem>().ItemName = Name;
         PhysicalItem.GetComponent<PhysicalItem>().Stack = NumbersOfItem;
-        Destroy(this.gameObject);
     }
     private void Start()
     {

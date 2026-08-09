@@ -4,7 +4,7 @@ public class Player : MonoBehaviour
 {
     [Header("Movement and Animations")]         //header #1
     [SerializeField] private float speed;
-    public Animator animator;
+    [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody2D player;
     private Vector2 LastDirection;
 
@@ -12,12 +12,11 @@ public class Player : MonoBehaviour
     [Header("Object-Interacting variables")]        //header #2
     private float DistToClstObj;
     private GameObject ClstObject;
-    private float InteractRange;
+    [SerializeField] private float InteractRange;
     private bool Interactable;
 
 
     [Space][Space][Space]
-    [SerializeField] private InteractAction actions;
     [Header("Item Management, pickup variables")]       //header #3
     [SerializeField] LayerMask ItemPickupLayer;
     [SerializeField] LayerMask InteractLayer;
@@ -133,8 +132,7 @@ public class Player : MonoBehaviour
                 case "Tree":
                     if(Input.GetKeyDown(KeyCode.Space))
                     {
-                        actions.ChoppingTree(actions.inventoryController.m_ItemDex.GetComponent<ItemDex>().itemdex[2],ClstObject);
-                    
+                        ClstObject.GetComponent<Tree>().DestroyObject();
                     }
                     break;
             }
@@ -148,6 +146,7 @@ public class Player : MonoBehaviour
         if (itemnearby != null)
         {
             itemnearby.GetComponent<PhysicalItem>().ConvertFromObjectToItem(PL_InventoryController);
+            Destroy(itemnearby);
         }
         
     }//end of Update
