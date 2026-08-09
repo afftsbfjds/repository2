@@ -27,7 +27,6 @@ public class Item : MonoBehaviour
     
     private void DropItem()
     {
-        //Destroy(this.gameObject.transform.GetChild(0));
         GameObject PhysicalItem = Instantiate(PrefabPhysicalObject,GameObject.Find("Player").transform.position + new Vector3(2f,2f,0),GameObject.Find("Player").transform.rotation);
         PhysicalItem.GetComponent<PhysicalItem>().PI_icon = icon;
         PhysicalItem.GetComponent<PhysicalItem>().ItemName = Name;
