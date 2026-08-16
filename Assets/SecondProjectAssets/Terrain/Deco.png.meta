@@ -1,10 +1,34 @@
 fileFormatVersion: 2
-guid: 5689dc47a4b013840b66fb01fea2e4b2
+guid: b200467cbb89b474eb8030378712c7f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1638812738757036181
-    second: ItemDex_0
+      213: 225827243569481546
+    second: Deco_0
+  - first:
+      213: 1587376615870251227
+    second: Deco_1
+  - first:
+      213: -7122632100217864554
+    second: Deco_2
+  - first:
+      213: -909150851950172432
+    second: Deco_3
+  - first:
+      213: 8614156189596622359
+    second: Deco_4
+  - first:
+      213: -4581511184564109199
+    second: Deco_5
+  - first:
+      213: 4437205228131298863
+    second: Deco_6
+  - first:
+      213: -7852715024362624077
+    second: Deco_7
+  - first:
+      213: 6643810134246320080
+    second: Deco_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,155 +124,199 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ItemDex_0
+      name: Deco_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 464
+        y: 304
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5988ffac08b3eb610800000000000000
-      internalID: 1638812738757036181
+      spriteID: a4780997eac422300800000000000000
+      internalID: 225827243569481546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ItemDex_1
+      name: Deco_1
       rect:
         serializedVersion: 2
         x: 16
-        y: 464
+        y: 304
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3d622bb9c00f246489f9eafc2f5f410c
-      internalID: -2043889463
+      spriteID: bd045b13f9e770610800000000000000
+      internalID: 1587376615870251227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ItemDex_2
+      name: Deco_2
       rect:
         serializedVersion: 2
         x: 32
-        y: 464
+        y: 304
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 47f71d4274a3a4343b13311be003f8c0
-      internalID: -1180104470
+      spriteID: 69e38b897d3572d90800000000000000
+      internalID: -7122632100217864554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ItemDex_3
+      name: Deco_3
       rect:
         serializedVersion: 2
         x: 48
-        y: 464
+        y: 304
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b5ac5b1e117b9654da466cbfdb39ef61
-      internalID: 1729285474
+      spriteID: 0f62446fd1c0263f0800000000000000
+      internalID: -909150851950172432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ItemDex_4
+      name: Deco_4
       rect:
         serializedVersion: 2
         x: 64
-        y: 464
+        y: 304
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b7ecd36ef515b404288316c830efedda
-      internalID: -226382727
+      spriteID: 71e93a82a61ab8770800000000000000
+      internalID: 8614156189596622359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ItemDex_5
+      name: Deco_5
       rect:
         serializedVersion: 2
-        x: 80
-        y: 464
+        x: 0
+        y: 288
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 969880f47a3dbda4da51aa4361e6af42
-      internalID: -1089637715
+      spriteID: 170c39df9d33b60c0800000000000000
+      internalID: -4581511184564109199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ItemDex_6
+      name: Deco_6
       rect:
         serializedVersion: 2
-        x: 96
-        y: 464
+        x: 0
+        y: 272
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 725fe82c2ad976d40ad271a0f21767b1
-      internalID: -1527041202
+      spriteID: f2ea54a45ae149d30800000000000000
+      internalID: 4437205228131298863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deco_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 272
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bb2e727a4d850390800000000000000
+      internalID: -7852715024362624077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Deco_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 272
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d764eedd1e833c50800000000000000
+      internalID: 6643810134246320080
       vertices: []
       indices: 
       edges: []
@@ -257,7 +325,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3ff014ec2aade9946808c2e1ff662e04
+    spriteID: 594808d34deabcf47a37b910dfda56c6
     internalID: 0
     vertices: []
     indices: 
@@ -267,15 +335,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      ItemDex_0: 1638812738757036181
-      ItemDex_1: -2043889463
-      ItemDex_2: -1180104470
-      ItemDex_3: 1729285474
-      ItemDex_4: -226382727
-      ItemDex_5: -1089637715
-      ItemDex_6: -1527041202
+      Deco_0: 225827243569481546
+      Deco_1: 1587376615870251227
+      Deco_2: -7122632100217864554
+      Deco_3: -909150851950172432
+      Deco_4: 8614156189596622359
+      Deco_5: -4581511184564109199
+      Deco_6: 4437205228131298863
+      Deco_7: -7852715024362624077
+      Deco_8: 6643810134246320080
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -5,7 +5,7 @@ public class HotBarController : MonoBehaviour
         public GameObject Slot;
         public GameObject parentsMenu;
         public int Hotbarsize;
-        public GameObject[] ItemGroup;//starteritem
+        [SerializeField] private ItemDataBase DataBase;
         private Transform currentItemHolding;  //reference to the item player holds
 
         private int KeyboardOutput=1;
@@ -26,22 +26,30 @@ public class HotBarController : MonoBehaviour
         return a;
     }
 
+    public bool ThisItemExist(string ItemName)
+    {
+        foreach (Transform Slot in parentsMenu.transform)
+        {
+            Slot SLOT = Slot.GetComponent<Slot>();
+            if (SLOT.currentitem.Name == ItemName)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     void Start()
     {
         for (int i = 0; i < Hotbarsize; i++)
         {
-            GameObject slot = Instantiate(Slot,parentsMenu.transform);//create x numbers of slots(include image,name,..)as children of Hotbar
-            if(ItemGroup[i] != null)
-            {
-                GameObject Item = Instantiate(ItemGroup[i],slot.transform);
-                Item.transform.localPosition = new Vector2(0,0);
-                slot.GetComponent<Slot>().currentitem = Item.GetComponent<Item>();
-            }
-
-            
+            GameObject slot = Instantiate(Slot,parentsMenu.transform);//create x numbers of slots(include image,name,..)as children of Hotbar   
         }
+        //create slots for hotbar
 
+
+        //create starter Item
+        InventoryController.Instance.TempSetItem(InventoryController.Instance.PrefabItem,"Axe",1);
 
 
     }

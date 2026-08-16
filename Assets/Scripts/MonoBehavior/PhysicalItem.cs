@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 public class PhysicalItem : MonoBehaviour
@@ -8,18 +9,15 @@ public class PhysicalItem : MonoBehaviour
     public string ItemName;
     [SerializeField] private GameObject ItemPrefab;
     //I Locked the Fuck In While Writting These TS The Hardest One
-    public void ConvertFromObjectToItem(GameObject inventoryController)
+    public void ConvertFromObjectToItem()
     {
-
-        GameObject TempItem = Instantiate(ItemPrefab,transform.position,transform.rotation);
-        TempItem.GetComponent<Item>().icon = PI_icon;
-        TempItem.GetComponent<Item>().Name = ItemName;
-        TempItem.GetComponent<Item>().NumbersOfItem = Stack;
-        //these three lines set the variables of Item with the value of PhysicalItem
-        inventoryController.GetComponent<InventoryController>().SetItem(TempItem,TempItem.GetComponent<Item>().NumbersOfItem);
-        Destroy(TempItem.gameObject);
-        Debug.Log("WORKING!");
+        Item item = Instantiate(ItemPrefab.GetComponent<Item>());
+        item.icon = this.PI_icon;
+        item.Name = this.ItemName;
+        item.NumbersOfItem = this.Stack;
+        InventoryController.Instance.TempSetItem(ItemPrefab.GetComponent<Item>(),item.Name,item.NumbersOfItem);
         Destroy(this.gameObject);
+        //CODE
 
     }
 

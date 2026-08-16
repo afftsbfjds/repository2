@@ -1,12 +1,19 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     [Header("Movement and Animations")]         //header #1
     [SerializeField] private float speed;
     [SerializeField] private Animator animator;
-    [SerializeField] private Rigidbody2D player;
-    private Vector2 LastDirection;
+    public Rigidbody2D player;
+    private Vector2 MoveInput;
+    public Vector2 LastDirection;
+
+
+    [Space]
+    [Space]
+    [Space]
 
 
     [Header("Object-Interacting variables")]        //header #2
@@ -16,20 +23,29 @@ public class Player : MonoBehaviour
     private bool Interactable;
 
 
-    [Space][Space][Space]
+    [Space]
+    [Space]
+    [Space]
+
+
     [Header("Item Management, pickup variables")]       //header #3
     [SerializeField] LayerMask ItemPickupLayer;
     [SerializeField] LayerMask InteractLayer;
 
+
+
+    [Space]
+    [Space]
+    [Space]
+    [Header("Misc")]                                    //header#4
     private GameObject itemnearby;
     [SerializeField] private GameObject PL_InventoryController;
 
+    /// <Function Used> //////////////////////////////////////////////////////////////////////////////////////////////
     private Collider2D TouchItem()
     {
         return Physics2D.OverlapCircle(transform.position,InteractRange,ItemPickupLayer);
     }
-
-
     private Collider2D InteractWithObject()
     {
 
@@ -40,7 +56,6 @@ public class Player : MonoBehaviour
         float c = Mathf.Sqrt(a*a + b*b);
         return new Vector2(a/c,b/c);
     }
-
     private float GetDistance(Vector2 a,Vector2 b)
     {
         float distance = Mathf.Abs(Mathf.Sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y)));
@@ -48,53 +63,46 @@ public class Player : MonoBehaviour
     }
     private bool IsMoving()
     {
-        if (Input.GetAxisRaw("Horizontal") !=0 || Input.GetAxisRaw("Vertical") != 0)
+        if (player.linearVelocity!= Vector2.zero)
         {
             return true;
         }
         return false;
     }
     
+    public void Move(InputAction.CallbackContext context)
+    {
+        MoveInput = context.ReadValue<Vector2>();
+    }
+    
+
+    /// 
+    /// <Function Used> //////////////////////////////////////////////////////////////////////////////////////////////
     void Start()
     {
         DistToClstObj = 99999;
         Interactable = false;
-        InteractRange=3f;
+        InteractRange=1f;
     }
     // Update is called once per frame
     void Update()
     {
+        if (player.linearVelocity != Vector2.zero)
+        {
+            LastDirection = player.linearVelocity;
+        }
         ///////////////////////////////////////////////////////////
         animator.SetBool("IsMoving",IsMoving());                ///
-        animator.SetFloat("Horizontal",LastDirection.x);        ///         Animating
-        animator.SetFloat("Vertical",LastDirection.y);          ///
+        animator.SetFloat("Horizontal",LastDirection.x); ///         Animating
+        animator.SetFloat("Vertical",LastDirection.y);   ///
         ///////////////////////////////////////////////////////////
-        IsMoving();
-        if(IsMoving())
-        {
-            player.linearVelocity = (Normalize(Input.GetAxisRaw("Horizontal")*speed,Input.GetAxisRaw("Vertical")*speed));   
-        }
-        else
-        {
-            player.linearVelocity = new Vector2(0,0);
-        }
+        
+        
+
+
         
         ////////////////////////////////////////////////////////////////////////////////////
-        if (Input.GetAxisRaw("Horizontal") !=0 && Input.GetAxis("Vertical") ==0){///////////    Check Movement
-            LastDirection = new Vector2(Input.GetAxis("Horizontal")/Mathf.Abs(Input.GetAxis("Horizontal")),0);//return (-)1,0
-            if (Input.GetAxisRaw("Horizontal") ==0 && Input.GetAxis("Vertical") != 0)
-            {
-                LastDirection = new Vector2(0,Input.GetAxis("Horizontal")/Mathf.Abs(Input.GetAxis("Horizontal")));
-            }
-
-        }
-        else if(Input.GetAxis("Horizontal")==0 && Input.GetAxis("Vertical") !=0){///////////    Check Movement
-            LastDirection = new Vector2(0,Input.GetAxis("Vertical")/Mathf.Abs(Input.GetAxis("Vertical")));//return 0,(-1)
-            if (Input.GetAxisRaw("Horizontal") !=0 && Input.GetAxis("Vertical") == 0)
-            {
-                LastDirection = new Vector2(Input.GetAxis("Horizontal")/Mathf.Abs(Input.GetAxis("Horizontal")),0);
-            }
-        }
+        player.linearVelocity = MoveInput* new Vector2(speed,speed);                                              ////    movement
         ////////////////////////////////////////////////////////////////////////////////////
         
         
@@ -109,8 +117,8 @@ public class Player : MonoBehaviour
             DistToClstObj= 99999;
             ClstObject = null;
         }
-        Debug.Log(ClstObject?.ToString());
-        Debug.Log(DistToClstObj);
+        //Debug.Log(ClstObject?.ToString());
+        //Debug.Log(DistToClstObj);
 
         Interactable = (DistToClstObj<InteractRange);
 
@@ -132,7 +140,8 @@ public class Player : MonoBehaviour
                 case "Tree":
                     if(Input.GetKeyDown(KeyCode.Space))
                     {
-                        ClstObject.GetComponent<Tree>().DestroyObject();
+                        ClstObject.GetComponent<Destructable>().DestroyObject();
+                        //Destroy(ClstObject);
                     }
                     break;
             }
@@ -145,8 +154,7 @@ public class Player : MonoBehaviour
         itemnearby = TouchItem()?.gameObject;
         if (itemnearby != null)
         {
-            itemnearby.GetComponent<PhysicalItem>().ConvertFromObjectToItem(PL_InventoryController);
-            Destroy(itemnearby);
+            itemnearby.GetComponent<PhysicalItem>().ConvertFromObjectToItem();
         }
         
     }//end of Update

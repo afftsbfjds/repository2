@@ -6,9 +6,21 @@ public class InventoryController : MonoBehaviour
     [SerializeField] private GameObject Slot;
     [SerializeField] private GameObject parentsMenu;
     [SerializeField] private int Inventorysize;
-    
+    public Item PrefabItem;
     [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private ItemDataBase DataBase;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public static InventoryController Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return ;
+        }
+        Instance = this;
+    }
     void Start()
     {
         for (int i = 0; i < Inventorysize; i++)
@@ -20,41 +32,51 @@ public class InventoryController : MonoBehaviour
 
         
         PauseMenu.gameObject.SetActive(false);
+        TempSetItem(PrefabItem,"Oak Log",5);
+
     }//end of func
 
+    //this is an WIP version of SetItem function so Keep working till it's done
 
-    public void SetItem(GameObject Items,int amount)
+    public void TempSetItem(Item PrefabItem, string SI_Item, int amount)
     {
-        foreach (Transform slots1 in parentsMenu.transform)
+        if (PrefabItem == null)     //check If Prefab is null, if it is, then do nothing
         {
-            Slot slot = slots1.GetComponent<Slot>();
-
-            if (slot.currentitem != null &&
-            slot.currentitem.icon == Items.GetComponent<Item>().icon)
-            {
-                slot.currentitem.NumbersOfItem += amount;
-                Destroy(Items);
-                return;
-            }
+            Debug.LogWarning("TempSetItem called with a null prefab item.");
+            return;
         }
-        foreach(Transform slots in parentsMenu.transform)
+
+        Item itemTemplate = DataBase != null ? DataBase.FindItem(SI_Item) : null;
+        if (itemTemplate == null)   //If The Item I Want To Set Doesn't Exist, Do nothing
         {
-            //Debug.Log("GameObject: "+slots.ToString());//loop through all slots in inventory
-            if(slots.GetComponent<Slot>().currentitem == null && Items!= null)
-            {
-                //Debug.Log("This slot can be set to an item");
-                Item newItem = Instantiate(Items,slots.transform).GetComponent<Item>();
-                newItem.transform.SetParent(slots);
-                newItem.name = Items.name;
-                newItem.NumbersOfItem = amount;
-                slots.GetComponent<Slot>().currentitem = newItem;
-                newItem.gameObject.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-                newItem.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.5f,0.5f);
-                break;
-            }
+            Debug.LogWarning($"Could not find item '{SI_Item}' in the database.");
+            return;
         }
-    }
 
+        foreach (Transform slotTransform in parentsMenu.transform)  //Loop Through All Slots
+        {
+            Slot slot = slotTransform.GetComponent<Slot>();
+            if (slot == null)   //If The Slot Get Bugged And Doesn't Generate, Skip
+                continue;
 
+            if (slot.currentitem != null)       //IF The Slot Contains Item, Skip / + Amount
+            {
+                if (slot.currentitem.Name == SI_Item)       //if Item Is The Same, + Amount
+                {
+                    slot.currentitem.NumbersOfItem += amount;
+                    return;
+                }
+                continue;
+            }
+
+            Item newItem = Instantiate(PrefabItem, slotTransform);      //if There's no same Item and there's Empty Slot, Set Item
+            newItem.transform.SetParent(slotTransform);
+            newItem.OverrideData(itemTemplate, amount);
+            slot.currentitem = newItem;
+            newItem.gameObject.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+            newItem.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
+            return;
+        }
+    }    //end of func
 
 }//end of class
