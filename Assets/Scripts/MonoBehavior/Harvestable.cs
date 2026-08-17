@@ -24,16 +24,12 @@ public class Destructable : MonoBehaviour
     [Space]
 
 
-    [Header("Inventory , Hotbar , DataBase")]
-    [SerializeField] private InventoryController Inventory;
-    [SerializeField] private HotBarController Hotbar;
     [SerializeField] private ItemDataBase DataBase;
 
     void Start()
     {
-        Inventory = InventoryController.Instance;
     }
-    public void DestroyObject()
+    public void HarvestObject()
     {
         
         OutputRandom.DropItem(Random.Range(min,max));

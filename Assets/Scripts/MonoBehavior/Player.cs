@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     [Header("Object-Interacting variables")]        //header #2
     private float DistToClstObj;
     private GameObject ClstObject;
-    [SerializeField] private float InteractRange;
+    [SerializeField] public float InteractRange;
     private bool Interactable;
 
 
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
         float c = Mathf.Sqrt(a*a + b*b);
         return new Vector2(a/c,b/c);
     }
-    private float GetDistance(Vector2 a,Vector2 b)
+    public float GetDistance(Vector2 a,Vector2 b)
     {
         float distance = Mathf.Abs(Mathf.Sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y)));
         return distance;
@@ -82,12 +82,12 @@ public class Player : MonoBehaviour
     {
         DistToClstObj = 99999;
         Interactable = false;
-        InteractRange=1f;
+        InteractRange=1.5f;
     }
     // Update is called once per frame
     void Update()
     {
-        if (player.linearVelocity != Vector2.zero)
+        if ((player.linearVelocity.x !=0 && player.linearVelocity.y ==0) ||(player.linearVelocity.x ==0 && player.linearVelocity.y !=0))
         {
             LastDirection = player.linearVelocity;
         }
@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
                 case "Tree":
                     if(Input.GetKeyDown(KeyCode.Space))
                     {
-                        ClstObject.GetComponent<Destructable>().DestroyObject();
+                        ClstObject.GetComponent<Destructable>().HarvestObject();
                         //Destroy(ClstObject);
                     }
                     break;

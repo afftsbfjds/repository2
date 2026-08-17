@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
     public Sprite icon;
     public string Name;
     [SerializeField] private GameObject PrefabPhysicalObject;
-    private GameObject Text;
+    [SerializeField] private TextMeshProUGUI Text;
     public ItemDataBase DataBase;
     
     public int NumbersOfItem=0;
@@ -31,29 +31,10 @@ public class Item : MonoBehaviour
         PhysicalItem.GetComponent<PhysicalItem>().ItemName = Name;
         PhysicalItem.GetComponent<PhysicalItem>().Stack = amountDrop;
     }
-    public Item OverrideData(Item I_Item, int AMOUNT)      //this takes data from database in order to replace this current item data
-    {
-        if (I_Item == null)//check if The Item Wanted To Set Exist, If Not THen Return Nothing
-            return this;
 
-        icon = I_Item.icon;         //If it Exist, Override this Current Item with That Item Data
-        Name = I_Item.Name;
-        DataBase = I_Item.DataBase;
-        NumbersOfItem = AMOUNT;
-        RefreshVisual();            //RefreshVisual Makes The UI Update
-        return this;
-    }
-
-    private void RefreshVisual()        //this will run after item Update to immediately change the UI, name,...
-    {
-        Text = transform.GetChild(0).gameObject;
-        this.gameObject.GetComponent<Image>().sprite = icon;
-        this.gameObject.name = Name;
-    }
     private void Start()
     {
-
-        RefreshVisual();
+        Text = this.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         if (NumbersOfItem <= 0 || Name == null || icon==null)
         {
             Destroy(this.gameObject);
@@ -61,7 +42,7 @@ public class Item : MonoBehaviour
     }
     private void Update()
     {
-        Text.GetComponent<TextMeshProUGUI>().text = NumbersOfItem.ToString();
+        Text.text = NumbersOfItem.ToString();
     }
 
 }

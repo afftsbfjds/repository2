@@ -8,6 +8,7 @@ public class PhysicalItem : MonoBehaviour
     public int Stack;
     public string ItemName;
     [SerializeField] private GameObject ItemPrefab;
+    [SerializeField] private ItemDataBase DataBase;
     //I Locked the Fuck In While Writting These TS The Hardest One
     public void ConvertFromObjectToItem()
     {
@@ -15,7 +16,8 @@ public class PhysicalItem : MonoBehaviour
         item.icon = this.PI_icon;
         item.Name = this.ItemName;
         item.NumbersOfItem = this.Stack;
-        InventoryController.Instance.TempSetItem(ItemPrefab.GetComponent<Item>(),item.Name,item.NumbersOfItem);
+        InventoryController.Instance.TempSetItem(item,item.NumbersOfItem,InventoryController.Instance.transform);
+        Destroy(item.gameObject);
         Destroy(this.gameObject);
         //CODE
 

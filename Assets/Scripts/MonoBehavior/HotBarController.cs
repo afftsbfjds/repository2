@@ -7,6 +7,7 @@ public class HotBarController : MonoBehaviour
         public int Hotbarsize;
         [SerializeField] private ItemDataBase DataBase;
         private Transform currentItemHolding;  //reference to the item player holds
+        public static HotBarController Instance { get; set;}
 
         private int KeyboardOutput=1;
     private int KeyboardNumberOutput(int numberPressed)
@@ -38,6 +39,15 @@ public class HotBarController : MonoBehaviour
         }
         return false;
     }
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return ;
+        }
+        Instance = this;
+    }
 
     void Start()
     {
@@ -49,8 +59,10 @@ public class HotBarController : MonoBehaviour
 
 
         //create starter Item
-        InventoryController.Instance.TempSetItem(InventoryController.Instance.PrefabItem,"Axe",1);
-
+        if (InventoryController.Instance != null)
+        {
+            InventoryController.Instance.TempSetItem(DataBase.FindItem("Axe"), 1, parentsMenu.transform);
+        }
 
     }
 

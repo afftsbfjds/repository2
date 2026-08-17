@@ -7,17 +7,23 @@ public class TileMap : MonoBehaviour
     [SerializeField] private Tilemap Map;
     [SerializeField] private Tile tile;
     [SerializeField] private Player player;
-
-    private Vector3Int Tilelocation;
     public void ChangeTile()
     {
-        Tilelocation = Vector3Int.FloorToInt
-        (player.transform.position + new Vector3(player.LastDirection.x,player.LastDirection.y,0));//convert playerpos to tile postion
+        Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (player.GetDistance(player.transform.position, mousepos) < player.InteractRange)
+        {
+            Map.SetTile(Map.WorldToCell(Vector3Int.FloorToInt(mousepos)), tile); // tile is your chosen Tile/TileBase
+        }
+        //Debug.Log(DirFacing.ToString());
         
     }
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            ChangeTile();
+        }
         
     }
 }

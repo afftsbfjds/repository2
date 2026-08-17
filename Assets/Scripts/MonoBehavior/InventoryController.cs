@@ -32,28 +32,24 @@ public class InventoryController : MonoBehaviour
 
         
         PauseMenu.gameObject.SetActive(false);
-        TempSetItem(PrefabItem,"Oak Log",5);
+        TempSetItem(DataBase.FindItem("Oak Log"),5,parentsMenu.transform);
 
     }//end of func
 
     //this is an WIP version of SetItem function so Keep working till it's done
 
-    public void TempSetItem(Item PrefabItem, string SI_Item, int amount)
+    public void TempSetItem(Item PrefabItem,int amount, Transform TargetParent)
     {
-        if (PrefabItem == null)     //check If Prefab is null, if it is, then do nothing
+        if(parentsMenu == null)
+            return;
+
+        if (PrefabItem == null)   //If The Item I Want To Set Doesn't Exist, Do nothing
         {
-            Debug.LogWarning("TempSetItem called with a null prefab item.");
+            Debug.LogWarning($"Could not find item '{PrefabItem}' in the database.");
             return;
         }
-
-        Item itemTemplate = DataBase != null ? DataBase.FindItem(SI_Item) : null;
-        if (itemTemplate == null)   //If The Item I Want To Set Doesn't Exist, Do nothing
-        {
-            Debug.LogWarning($"Could not find item '{SI_Item}' in the database.");
-            return;
-        }
-
-        foreach (Transform slotTransform in parentsMenu.transform)  //Loop Through All Slots
+        Item TempItem = Instantiate(PrefabItem);
+        foreach (Transform slotTransform in TargetParent)  //Loop Through All Slots
         {
             Slot slot = slotTransform.GetComponent<Slot>();
             if (slot == null)   //If The Slot Get Bugged And Doesn't Generate, Skip
@@ -61,20 +57,19 @@ public class InventoryController : MonoBehaviour
 
             if (slot.currentitem != null)       //IF The Slot Contains Item, Skip / + Amount
             {
-                if (slot.currentitem.Name == SI_Item)       //if Item Is The Same, + Amount
+                if (slot.currentitem.Name == TempItem.Name)       //if Item Is The Same, + Amount
                 {
                     slot.currentitem.NumbersOfItem += amount;
+                    Destroy(TempItem);
                     return;
                 }
                 continue;
             }
 
-            Item newItem = Instantiate(PrefabItem, slotTransform);      //if There's no same Item and there's Empty Slot, Set Item
-            newItem.transform.SetParent(slotTransform);
-            newItem.OverrideData(itemTemplate, amount);
-            slot.currentitem = newItem;
-            newItem.gameObject.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-            newItem.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
+            TempItem.transform.SetParent(slotTransform);
+            slot.currentitem = TempItem;
+            TempItem.gameObject.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+            TempItem.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
             return;
         }
     }    //end of func

@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
   icon: {fileID: 1638812738757036181, guid: 5689dc47a4b013840b66fb01fea2e4b2, type: 3}
-  Name: Trusty Axe
+  Name: Axe
   PrefabPhysicalObject: {fileID: 3095826236676969625, guid: 4f62e93a88394984983f9b75afd1152d, type: 3}
   DataBase: {fileID: 11400000, guid: 4c42d9281574fd941bd2a7d279cb5d62, type: 2}
   NumbersOfItem: 1
