@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 61449a35edb2ef248a530ee81f85985c
+guid: 250f934540bc0424692b7766868c7692
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639227603925811845
+  platformSettingsDirtyTick: 639227603874474468
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: IdleRight
+  - name: IdleLeft
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 18
+      width: 16
       height: 32
-    spriteID: 14795b8269dece84babd019ea3d299fa
+    spriteID: ced4d42851154da43932c7eee2a698c3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 621549498
+      value0: 1702622803
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: IdleRight
+    name: IdleLeft
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: IdleRight
+    - name: IdleLeft
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 7
+        x: 8
         y: 0
-        width: 18
+        width: 16
         height: 32
-      spriteId: 14795b8269dece84babd019ea3d299fa
+      spriteId: ced4d42851154da43932c7eee2a698c3
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

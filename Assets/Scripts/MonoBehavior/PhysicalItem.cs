@@ -12,7 +12,7 @@ public class PhysicalItem : MonoBehaviour
     //I Locked the Fuck In While Writting These TS The Hardest One
     public void ConvertFromObjectToItem()
     {
-        Item item = Instantiate(ItemPrefab.GetComponent<Item>());
+        Item item = Instantiate(DataBase.FindItem(ItemName));
         item.icon = this.PI_icon;
         item.Name = this.ItemName;
         item.NumbersOfItem = this.Stack;

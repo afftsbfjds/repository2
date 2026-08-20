@@ -43,6 +43,10 @@ public class Item : MonoBehaviour
     private void Update()
     {
         Text.text = NumbersOfItem.ToString();
+        if (NumbersOfItem <= 0 || Name == null || icon==null)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 }

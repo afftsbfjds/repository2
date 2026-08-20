@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 61449a35edb2ef248a530ee81f85985c
+guid: 98165398ddde80043bef45f001d9004f
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639227603925811845
+  platformSettingsDirtyTick: 639227604007645945
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: IdleRight
+  - name: IdleUp
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 18
+      width: 20
       height: 32
-    spriteID: 14795b8269dece84babd019ea3d299fa
+    spriteID: 8a01cbdd44b967244b84e7fc9207da01
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 621549498
+      value0: 2436879129
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: IdleRight
+    name: IdleUp
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: IdleRight
+    - name: IdleUp
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 7
+        x: 6
         y: 0
-        width: 18
+        width: 20
         height: 32
-      spriteId: 14795b8269dece84babd019ea3d299fa
+      spriteId: 8a01cbdd44b967244b84e7fc9207da01
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

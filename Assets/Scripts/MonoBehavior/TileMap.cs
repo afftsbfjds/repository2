@@ -4,9 +4,23 @@ using UnityEngine.Tilemaps;
 
 public class TileMap : MonoBehaviour
 {
-    [SerializeField] private Tilemap Map;
+    public static TileMap Instance { get; private set; }
+
+    public Tilemap Map;
     [SerializeField] private Tile tile;
     [SerializeField] private Player player;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
+        Instance = this;
+    }
+
     public void ChangeTile()
     {
         Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

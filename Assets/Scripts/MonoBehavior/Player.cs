@@ -20,8 +20,6 @@ public class Player : MonoBehaviour
     private float DistToClstObj;
     private GameObject ClstObject;
     [SerializeField] public float InteractRange;
-    private bool Interactable;
-
 
     [Space]
     [Space]
@@ -48,7 +46,6 @@ public class Player : MonoBehaviour
     }
     private Collider2D InteractWithObject()
     {
-
         return Physics2D.OverlapCircle(transform.position,2f,InteractLayer);
     }
     private Vector2 Normalize(float a,float b)
@@ -81,7 +78,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         DistToClstObj = 99999;
-        Interactable = false;
         InteractRange=1.5f;
     }
     // Update is called once per frame
@@ -120,7 +116,6 @@ public class Player : MonoBehaviour
         //Debug.Log(ClstObject?.ToString());
         //Debug.Log(DistToClstObj);
 
-        Interactable = (DistToClstObj<InteractRange);
 
         ////////////////////////////////////
         ///                              ///
@@ -133,7 +128,7 @@ public class Player : MonoBehaviour
         ///////////////////////////////
         // Interacting with objects  //
         ///////////////////////////////
-        if (Interactable && ClstObject != null)
+        if (ClstObject != null)
         {
             switch (ClstObject.tag)
             {
@@ -144,7 +139,13 @@ public class Player : MonoBehaviour
                         //Destroy(ClstObject);
                     }
                     break;
-            }
+                case "Plant":
+                    if (Input.GetKeyDown(KeyCode.Space) && ClstObject.GetComponent<Plant>().Harvestable)
+                    {
+                        ClstObject.GetComponent<Destructable>().HarvestObject();
+                    }
+                    break;
+            }       
 
                 
         }

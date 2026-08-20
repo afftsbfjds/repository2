@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: -6267036042989273903}
   - component: {fileID: 3296506611022859917}
   - component: {fileID: 8968177197192499117}
+  - component: {fileID: -8695778182886088128}
+  - component: {fileID: 7730590876544175177}
   m_Layer: 5
   m_Name: Seed Bag
   m_TagString: Untagged
@@ -69,7 +71,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1180104470, guid: 5689dc47a4b013840b66fb01fea2e4b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -139,6 +141,33 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!225 &-8695778182886088128
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3285464651109252257}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &7730590876544175177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3285464651109252257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57cd206e2c341f64fa80278777332582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Seed
+  Plant: {fileID: -4656771535332904170, guid: 6d70504ad6a36e1429709716fe4d2859, type: 3}
+  SeedBag: {fileID: -6267036042989273903}
+  soil: {fileID: 11400000, guid: 33d6b13ee1f87644c87986113ff89ff1, type: 2}
 --- !u!1 &7135522940040384458
 GameObject:
   m_ObjectHideFlags: 0

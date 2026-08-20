@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: RendererFeature
   m_EditorClassIdentifier: Assembly-CSharp::RendererFeature
   m_Active: 1
-  settings:
-    material: {fileID: 2100000, guid: 0c3be905459a22140aba3cebf19c6ac4, type: 2}
+  settings: {material: {fileID: 2100000, guid: 0c3be905459a22140aba3cebf19c6ac4, type: 2}}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,9 +38,8 @@ MonoBehaviour:
     probeSamplingDebugMesh: {fileID: -3555484719484374845, guid: 57d7c4c16e2765b47a4d2069b311bffe, type: 3}
     probeSamplingDebugTexture: {fileID: 2800000, guid: 24ec0e140fb444a44ab96ee80844e18e, type: 3}
     probeVolumeBlendStatesCS: {fileID: 0}
-  m_RendererFeatures:
-  - {fileID: -374303292885075255}
-  m_RendererFeatureMap: c97a53652335cefa
+  m_RendererFeatures: []
+  m_RendererFeatureMap: 
   m_UseNativeRenderPass: 0
   m_LayerMask:
     serializedVersion: 2

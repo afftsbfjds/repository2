@@ -6,36 +6,46 @@ public class HotBarController : MonoBehaviour
         public GameObject parentsMenu;
         public int Hotbarsize;
         [SerializeField] private ItemDataBase DataBase;
-        private Transform currentItemHolding;  //reference to the item player holds
+        private Transform currentSlot;  //reference to the item player holds
+        public Item CurrentItemHeld;
         public static HotBarController Instance { get; set;}
 
         private int KeyboardOutput=1;
-    private int KeyboardNumberOutput(int numberPressed)
+    private void KeyboardNumberOutput()
     {
-        int a = numberPressed;
-        // Check number keys 1-9 and 0 (as 10)
+        
+        // Check number keys 1-9 
 
             for (int i = 1; i <= Hotbarsize; i++)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1 + (i - 1)))
                 {
-                    a = i;
+                    KeyboardOutput = i;
                     break;
                 }
             }
         
-        return a;
     }
 
-    public bool ThisItemExist(string ItemName)
+    public bool ThisItemInHotbar(string ItemName)
     {
         foreach (Transform Slot in parentsMenu.transform)
         {
             Slot SLOT = Slot.GetComponent<Slot>();
-            if (SLOT.currentitem.Name == ItemName)
+            if (SLOT.currentitem != null && SLOT.currentitem.Name == ItemName)
             {
                 return true;
             }
+        }
+        return false;
+    }
+    public bool HoldingThis(Item ItemHeld)
+    {
+        foreach (Transform Slot in parentsMenu.transform)
+        {
+            Slot slot = Slot.GetComponent<Slot>();
+            if(CurrentItemHeld.name == slot.currentitem.name)
+                return true;
         }
         return false;
     }
@@ -72,9 +82,11 @@ public class HotBarController : MonoBehaviour
         {
             this.gameObject.transform.GetChild(i).GetComponent<Image>().color = Color.gray;
         }
-        KeyboardOutput = KeyboardNumberOutput(KeyboardOutput);
-        currentItemHolding = this.gameObject.transform.GetChild(KeyboardOutput-1);
-        currentItemHolding.GetComponent<Image>().color = Color.white;
+        KeyboardNumberOutput();
+        currentSlot = this.gameObject.transform.GetChild(KeyboardOutput-1);
+        currentSlot.GetComponent<Image>().color = Color.white;
+        if (currentSlot.GetComponent<Slot>().currentitem!= null)
+            CurrentItemHeld = currentSlot.GetComponentInChildren<Item>();
     }
     
 

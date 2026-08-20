@@ -48,6 +48,24 @@ public class InventoryController : MonoBehaviour
             Debug.LogWarning($"Could not find item '{PrefabItem}' in the database.");
             return;
         }
+        //Check If Duplicate
+
+        foreach( Transform slotTransform in TargetParent)
+        {
+            Slot slot = slotTransform.GetComponent<Slot>();
+            if(slot == null || slot.currentitem == null)
+            {
+                continue;
+            }
+            if(slot.currentitem.Name == PrefabItem.Name)
+            {
+                slot.currentitem.NumbersOfItem += PrefabItem.NumbersOfItem;
+                Destroy(PrefabItem);
+                return ;
+            }
+            
+            
+        }
         Item TempItem = Instantiate(PrefabItem);
         foreach (Transform slotTransform in TargetParent)  //Loop Through All Slots
         {
@@ -57,12 +75,6 @@ public class InventoryController : MonoBehaviour
 
             if (slot.currentitem != null)       //IF The Slot Contains Item, Skip / + Amount
             {
-                if (slot.currentitem.Name == TempItem.Name)       //if Item Is The Same, + Amount
-                {
-                    slot.currentitem.NumbersOfItem += amount;
-                    Destroy(TempItem);
-                    return;
-                }
                 continue;
             }
 

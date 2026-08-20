@@ -27,9 +27,9 @@ public class ItemDragging : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("Working");
+        //Debug.Log("Working");
         AfterProceedSlot = eventData.pointerEnter?.GetComponent<Slot>();
-        Debug.Log("Pointing to " +eventData.pointerEnter?.ToString());
+        //Debug.Log("Pointing to " +eventData.pointerEnter?.ToString());
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
         Slot originalslot = ParentsSlot.GetComponent<Slot>();       //set at the start of the dragging

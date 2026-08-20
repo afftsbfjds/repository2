@@ -25,15 +25,19 @@ public class Destructable : MonoBehaviour
 
 
     [SerializeField] private ItemDataBase DataBase;
+    [SerializeField] public HarvestTool toolreq;
 
     void Start()
     {
     }
     public void HarvestObject()
     {
-        
-        OutputRandom.DropItem(Random.Range(min,max));
-        Output2.DropItem(amount2);
+        if(OutputRandom!=null)
+            OutputRandom.DropItem(Random.Range(min,max));
+        if(Output1!=null)
+            Output1.DropItem(amount1);
+        if(Output2!=null)
+            Output2.DropItem(amount2);
         Destroy(this.gameObject);
     }
 

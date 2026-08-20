@@ -70,7 +70,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -226382727, guid: 5689dc47a4b013840b66fb01fea2e4b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -120,6 +120,7 @@ MonoBehaviour:
   icon: {fileID: -226382727, guid: 5689dc47a4b013840b66fb01fea2e4b2, type: 3}
   Name: Oak Log
   PrefabPhysicalObject: {fileID: 3095826236676969625, guid: 4f62e93a88394984983f9b75afd1152d, type: 3}
+  Text: {fileID: 0}
   DataBase: {fileID: 11400000, guid: 4c42d9281574fd941bd2a7d279cb5d62, type: 2}
   NumbersOfItem: 0
 --- !u!114 &-3238330194661743478
