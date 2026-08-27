@@ -8,9 +8,13 @@ public class Item : MonoBehaviour
     public string Name;
     [SerializeField] private GameObject PrefabPhysicalObject;
     [SerializeField] private TextMeshProUGUI Text;
-    public ItemDataBase DataBase;
-    
     public int NumbersOfItem=0;
+    public ItemDataBase DataBase;
+    [Space]
+    [Space]
+    [Space]
+    [Header("Type the Types in ItemType")]
+    [SerializeField] private string[] Available_Type = {"Tool","Consumable","Material"};
 
 
     public void ClickItem(BaseEventData data)

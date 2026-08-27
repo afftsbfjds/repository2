@@ -7,7 +7,6 @@ public class TileMap : MonoBehaviour
     public static TileMap Instance { get; private set; }
 
     public Tilemap Map;
-    [SerializeField] private Tile tile;
     [SerializeField] private Player player;
 
     private void Awake()
@@ -21,23 +20,10 @@ public class TileMap : MonoBehaviour
         Instance = this;
     }
 
-    public void ChangeTile()
+    public void ChangeTile(Tile tile,Vector3Int TileLocation)
     {
-        Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (player.GetDistance(player.transform.position, mousepos) < player.InteractRange)
-        {
-            Map.SetTile(Map.WorldToCell(Vector3Int.FloorToInt(mousepos)), tile); // tile is your chosen Tile/TileBase
-        }
+        Map.SetTile(Map.WorldToCell(TileLocation), tile); // tile is your chosen Tile/TileBase
         //Debug.Log(DirFacing.ToString());
-        
-    }
-
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            ChangeTile();
-        }
         
     }
 }

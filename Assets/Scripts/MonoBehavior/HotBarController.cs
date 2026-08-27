@@ -41,13 +41,8 @@ public class HotBarController : MonoBehaviour
     }
     public bool HoldingThis(Item ItemHeld)
     {
-        foreach (Transform Slot in parentsMenu.transform)
-        {
-            Slot slot = Slot.GetComponent<Slot>();
-            if(CurrentItemHeld.name == slot.currentitem.name)
-                return true;
-        }
-        return false;
+        return ItemHeld != null && CurrentItemHeld != null &&
+            CurrentItemHeld.Name == ItemHeld.Name;
     }
     void Awake()
     {
@@ -83,10 +78,21 @@ public class HotBarController : MonoBehaviour
             this.gameObject.transform.GetChild(i).GetComponent<Image>().color = Color.gray;
         }
         KeyboardNumberOutput();
+
+        //                      visual changes to current slots
         currentSlot = this.gameObject.transform.GetChild(KeyboardOutput-1);
         currentSlot.GetComponent<Image>().color = Color.white;
-        if (currentSlot.GetComponent<Slot>().currentitem!= null)
-            CurrentItemHeld = currentSlot.GetComponentInChildren<Item>();
+        //                      visual changes to current slots
+
+
+
+        //                      detect item holding
+        CurrentItemHeld = currentSlot.GetComponent<Slot>().currentitem;
+
+
+
+        //Is Holding Tool?
+            
     }
     
 

@@ -17,14 +17,6 @@ public class Plant : MonoBehaviour
         this.GetComponent<SpriteRenderer>().sprite = currentState;
     }
 
-    void Start()
-    {
-        Vector3Int position = Vector3Int.FloorToInt(this.gameObject.transform.position);
-        if (TileMap.Instance.Map.GetTile(position) != Soil)
-        {
-            Destroy(this.gameObject);       //check if planted on soil(if not then destroy)
-        }
-    }
     void Update()
     {
         

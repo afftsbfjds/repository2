@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 7116610449614548053}
   - component: {fileID: 8932488029422214619}
   - component: {fileID: 398154700738298297}
+  - component: {fileID: 8719697227928604303}
   m_Layer: 5
   m_Name: Axe
   m_TagString: Untagged
@@ -234,8 +235,10 @@ MonoBehaviour:
   icon: {fileID: 1638812738757036181, guid: 5689dc47a4b013840b66fb01fea2e4b2, type: 3}
   Name: Axe
   PrefabPhysicalObject: {fileID: 3095826236676969625, guid: 4f62e93a88394984983f9b75afd1152d, type: 3}
-  DataBase: {fileID: 11400000, guid: 4c42d9281574fd941bd2a7d279cb5d62, type: 2}
+  Text: {fileID: 0}
   NumbersOfItem: 1
+  DataBase: {fileID: 11400000, guid: 4c42d9281574fd941bd2a7d279cb5d62, type: 2}
+  Available_Type: []
 --- !u!114 &7116610449614548053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,3 +293,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &8719697227928604303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643280660248159962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19d6df7d0420a24c922d689d8935878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HarvestTool
+  overrideController: {fileID: 22100000, guid: cacd8b1f2d730fd40b7c099117d56aa1, type: 2}
+  InteractUp: {fileID: 7400000, guid: 0f292d35c60e6ff418c39e7a3966985a, type: 2}
+  InteractDown: {fileID: 7400000, guid: 0f292d35c60e6ff418c39e7a3966985a, type: 2}
+  InteractLeft: {fileID: 7400000, guid: 0f292d35c60e6ff418c39e7a3966985a, type: 2}
+  InteractRight: {fileID: 7400000, guid: 0f292d35c60e6ff418c39e7a3966985a, type: 2}

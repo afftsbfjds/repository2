@@ -19,7 +19,40 @@ public class Player : MonoBehaviour
     [Header("Object-Interacting variables")]        //header #2
     private float DistToClstObj;
     private GameObject ClstObject;
+    private Interactable PendingHarvest;
     [SerializeField] public float InteractRange;
+
+    public void StopUsingTool()
+    {
+        animator.SetBool("UseTool",false);
+        if (PendingHarvest != null)
+        {
+            PendingHarvest.toolreq.Use_Harvest_Tool_On(PendingHarvest);
+            PendingHarvest = null;
+        }
+    }
+
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if (!context.performed || ClstObject == null || animator.GetBool("UseTool"))
+            return;
+
+        Interactable interactable = ClstObject.GetComponent<Interactable>();
+        if (interactable == null || !interactable.CanInteractWith())
+            return;
+
+
+        switch (interactable.ObjectType)//check interact type
+        {
+            case "Harvestable":// if tryna harvest
+                interactable.toolreq.StartUseTool();       //set the animation in override controller to prep for override
+                animator.runtimeAnimatorController = interactable.toolreq.overrideController;//override interact animation for each tools
+                PendingHarvest = interactable;
+                animator.SetBool("UseTool",true);   //start playing the animation after overrided
+                break;//break the inner case
+            
+        }
+    }
 
     [Space]
     [Space]
@@ -37,7 +70,6 @@ public class Player : MonoBehaviour
     [Space]
     [Header("Misc")]                                    //header#4
     private GameObject itemnearby;
-    [SerializeField] private GameObject PL_InventoryController;
 
     /// <Function Used> //////////////////////////////////////////////////////////////////////////////////////////////
     private Collider2D TouchItem()
@@ -58,22 +90,11 @@ public class Player : MonoBehaviour
         float distance = Mathf.Abs(Mathf.Sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y)));
         return distance;
     }
-    private bool IsMoving()
-    {
-        if (player.linearVelocity!= Vector2.zero)
-        {
-            return true;
-        }
-        return false;
-    }
-    
     public void Move(InputAction.CallbackContext context)
     {
         MoveInput = context.ReadValue<Vector2>();
     }
     
-
-    /// 
     /// <Function Used> //////////////////////////////////////////////////////////////////////////////////////////////
     void Start()
     {
@@ -83,23 +104,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((player.linearVelocity.x !=0 && player.linearVelocity.y ==0) ||(player.linearVelocity.x ==0 && player.linearVelocity.y !=0))
+        if (MoveInput != Vector2.zero)
         {
-            LastDirection = player.linearVelocity;
+            LastDirection = MoveInput;
         }
-        ///////////////////////////////////////////////////////////
-        animator.SetBool("IsMoving",IsMoving());                ///
-        animator.SetFloat("Horizontal",LastDirection.x); ///         Animating
-        animator.SetFloat("Vertical",LastDirection.y);   ///
-        ///////////////////////////////////////////////////////////
-        
-        
 
+        player.linearVelocity = MoveInput * speed;
 
-        
-        ////////////////////////////////////////////////////////////////////////////////////
-        player.linearVelocity = MoveInput* new Vector2(speed,speed);                                              ////    movement
-        ////////////////////////////////////////////////////////////////////////////////////
+        animator.SetBool("IsMoving", MoveInput != Vector2.zero);
+        animator.SetFloat("Horizontal", LastDirection.x);
+        animator.SetFloat("Vertical", LastDirection.y);
         
         
         
@@ -128,27 +142,7 @@ public class Player : MonoBehaviour
         ///////////////////////////////
         // Interacting with objects  //
         ///////////////////////////////
-        if (ClstObject != null)
-        {
-            switch (ClstObject.tag)
-            {
-                case "Tree":
-                    if(Input.GetKeyDown(KeyCode.Space))
-                    {
-                        ClstObject.GetComponent<Destructable>().HarvestObject();
-                        //Destroy(ClstObject);
-                    }
-                    break;
-                case "Plant":
-                    if (Input.GetKeyDown(KeyCode.Space) && ClstObject.GetComponent<Plant>().Harvestable)
-                    {
-                        ClstObject.GetComponent<Destructable>().HarvestObject();
-                    }
-                    break;
-            }       
-
-                
-        }
+        
         
         //this is the part where I make pickup item func
 
