@@ -4,53 +4,29 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class Item : MonoBehaviour
 {
-    public Sprite icon;
-    public string Name;
     [SerializeField] private GameObject PrefabPhysicalObject;
-    [SerializeField] private TextMeshProUGUI Text;
+    [SerializeField] private TextMeshProUGUI TextPrefab;
     public int NumbersOfItem=0;
-    public ItemDataBase DataBase;
-    [Space]
-    [Space]
-    [Space]
-    [Header("Type the Types in ItemType")]
-    [SerializeField] private string[] Available_Type = {"Tool","Consumable","Material"};
-
-
-    public void ClickItem(BaseEventData data)
+    public ItemData Data;
+    public void Interact()
     {
-
-        PointerEventData pointerData = (PointerEventData)data;
-
-        if (pointerData.button == PointerEventData.InputButton.Right)
+        switch (Data.type)
         {
-            DropItem(this.NumbersOfItem);
-            Destroy(this.gameObject);
+            case ItemData.ITEMTYPE.Tool:
+                break ;
+            case ItemData.ITEMTYPE.Material:
+                return ;
+            case ItemData.ITEMTYPE.Consumable:
+                break ;
+            case ItemData.ITEMTYPE.Seed:
+                break ;
         }
     }
-    public void DropItem(int amountDrop)
-    {
-        GameObject PhysicalItem = Instantiate(PrefabPhysicalObject,GameObject.Find("Player").transform.position + new Vector3(2,2,0),GameObject.Find("Player").transform.rotation);
-        PhysicalItem.GetComponent<PhysicalItem>().PI_icon = icon;
-        PhysicalItem.GetComponent<PhysicalItem>().ItemName = Name;
-        PhysicalItem.GetComponent<PhysicalItem>().Stack = amountDrop;
-    }
 
-    private void Start()
+    public void visualUpdate()
     {
-        Text = this.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        if (NumbersOfItem <= 0 || Name == null || icon==null)
-        {
-            Destroy(this.gameObject);
-        }
-    }
-    private void Update()
-    {
-        Text.text = NumbersOfItem.ToString();
-        if (NumbersOfItem <= 0 || Name == null || icon==null)
-        {
-            Destroy(this.gameObject);
-        }
+        this.GetComponent<Image>().sprite = Data.icon;
+        this.name = Data.Name;
     }
 
 }

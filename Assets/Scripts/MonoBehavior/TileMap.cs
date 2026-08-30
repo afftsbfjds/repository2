@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class TileMap : MonoBehaviour
 {
+
     public static TileMap Instance { get; private set; }
 
     public Tilemap Map;

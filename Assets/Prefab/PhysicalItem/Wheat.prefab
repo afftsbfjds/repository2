@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4656771535332904170}
   m_Layer: 7
   m_Name: Wheat
-  m_TagString: Plant
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,7 +173,8 @@ MonoBehaviour:
   amount2: 1
   min: 1
   max: 3
-  DataBase: {fileID: 11400000, guid: 4c42d9281574fd941bd2a7d279cb5d62, type: 2}
+  toolreq: {fileID: 0}
+  Type: 0
 --- !u!114 &-4656771535332904170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,3 +195,4 @@ MonoBehaviour:
   TimeGrown: 0
   TimeRequired: 5
   Harvestable: 0
+  Soil: {fileID: 0}

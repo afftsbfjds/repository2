@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 3852846787429208832}
   - component: {fileID: 8526962545171102189}
   - component: {fileID: -3214909477710800831}
-  - component: {fileID: 4900389027143797770}
   m_Layer: 5
   m_Name: Ho
   m_TagString: Untagged
@@ -122,8 +121,12 @@ MonoBehaviour:
   Name: Hoe
   PrefabPhysicalObject: {fileID: 3095826236676969625, guid: 4f62e93a88394984983f9b75afd1152d, type: 3}
   Text: {fileID: 0}
-  DataBase: {fileID: 11400000, guid: 4c42d9281574fd941bd2a7d279cb5d62, type: 2}
   NumbersOfItem: 0
+  DataBase: {fileID: 11400000, guid: 4c42d9281574fd941bd2a7d279cb5d62, type: 2}
+  Available_Type:
+  - Tool
+  - Consumable
+  - Material
 --- !u!114 &-3214909477710800831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,18 +156,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &4900389027143797770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2670148785005889783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c19d6df7d0420a24c922d689d8935878, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HarvestTool
 --- !u!1 &6093340720152541653
 GameObject:
   m_ObjectHideFlags: 0

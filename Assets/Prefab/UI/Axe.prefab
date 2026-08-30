@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 7116610449614548053}
   - component: {fileID: 8932488029422214619}
   - component: {fileID: 398154700738298297}
-  - component: {fileID: 8719697227928604303}
+  - component: {fileID: -8286833711422582587}
   m_Layer: 5
   m_Name: Axe
   m_TagString: Untagged
@@ -293,7 +293,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &8719697227928604303
+--- !u!114 &-8286833711422582587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,11 +302,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6643280660248159962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c19d6df7d0420a24c922d689d8935878, type: 3}
+  m_Script: {fileID: 11500000, guid: c639e62e095773345b12cced8da17cd9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HarvestTool
-  overrideController: {fileID: 22100000, guid: cacd8b1f2d730fd40b7c099117d56aa1, type: 2}
-  InteractUp: {fileID: 7400000, guid: 0f292d35c60e6ff418c39e7a3966985a, type: 2}
-  InteractDown: {fileID: 7400000, guid: 0f292d35c60e6ff418c39e7a3966985a, type: 2}
-  InteractLeft: {fileID: 7400000, guid: 0f292d35c60e6ff418c39e7a3966985a, type: 2}
-  InteractRight: {fileID: 7400000, guid: 0f292d35c60e6ff418c39e7a3966985a, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Tool
+  ToolInteraction: {fileID: 11400000, guid: 246573d5e6cd87c46895b15a71ebfc06, type: 2}
+  Data: {fileID: 11400000, guid: 439f72f70d9b0c14abe47140e18deaca, type: 2}
+  OutputTile: {fileID: 11400000, guid: 33d6b13ee1f87644c87986113ff89ff1, type: 2}

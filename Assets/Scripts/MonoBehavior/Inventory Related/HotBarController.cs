@@ -5,7 +5,6 @@ public class HotBarController : MonoBehaviour
         public GameObject Slot;
         public GameObject parentsMenu;
         public int Hotbarsize;
-        [SerializeField] private ItemDataBase DataBase;
         private Transform currentSlot;  //reference to the item player holds
         public Item CurrentItemHeld;
         public static HotBarController Instance { get; set;}
@@ -32,7 +31,7 @@ public class HotBarController : MonoBehaviour
         foreach (Transform Slot in parentsMenu.transform)
         {
             Slot SLOT = Slot.GetComponent<Slot>();
-            if (SLOT.currentitem != null && SLOT.currentitem.Name == ItemName)
+            if (SLOT.currentitem != null && SLOT.currentitem.Data.Name == ItemName)
             {
                 return true;
             }
@@ -42,7 +41,7 @@ public class HotBarController : MonoBehaviour
     public bool HoldingThis(Item ItemHeld)
     {
         return ItemHeld != null && CurrentItemHeld != null &&
-            CurrentItemHeld.Name == ItemHeld.Name;
+            CurrentItemHeld.Data.Name == ItemHeld.Data.Name;
     }
     void Awake()
     {
@@ -66,7 +65,7 @@ public class HotBarController : MonoBehaviour
         //create starter Item
         if (InventoryController.Instance != null)
         {
-            InventoryController.Instance.TempSetItem(DataBase.FindItem("Axe"), 1, parentsMenu.transform);
+            //InventoryController.Instance.TempSetItem(DataBase.FindItem("Axe"), 1, parentsMenu.transform);
         }
 
     }

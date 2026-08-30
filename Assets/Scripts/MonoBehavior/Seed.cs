@@ -21,7 +21,7 @@ public class Seed : MonoBehaviour
         
         Debug.Log($"Found tile: {TilePointedAt.name}");
 
-        if (!HotBarController.Instance.ThisItemInHotbar(SeedBag.Name))//check if seed in hotbar
+        if (!HotBarController.Instance.ThisItemInHotbar(SeedBag.Data.Name))//check if seed in hotbar
         {
             Debug.LogWarning("No SeedBag found in Hotbar");
             return ;

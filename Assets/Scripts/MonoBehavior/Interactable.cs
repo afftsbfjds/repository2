@@ -18,16 +18,15 @@ public class Interactable : MonoBehaviour
     public int amount2;
     public int min;
     public int max;
+    public Tool toolreq;
 
-    [Space]
-    [Space]
-    [Space]
-    public HarvestTool toolreq;
-    [Space]
-    [Space]
-    [Space]
-    [Header("Object Type Could either be  Harvestable, Convertable       ")]
-    public string ObjectType;
+
+    public enum ObjectType
+    {
+        Harvestable,
+        Convertable
+    };
+    public ObjectType Type;
 
     public bool CanInteractWith()
     {

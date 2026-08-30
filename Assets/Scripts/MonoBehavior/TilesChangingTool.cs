@@ -15,7 +15,7 @@ public class TilesChangingTool : MonoBehaviour
     private TileBase TargetTile;
     public bool CanUseTool()
     {
-        return HotBarController.Instance.CurrentItemHeld.Name == this.GetComponent<Item>().Name;
+        return HotBarController.Instance.CurrentItemHeld.Data.Name == this.GetComponent<Item>().Data.Name;
         //check if currently holding a tool
     }
 
