@@ -38,10 +38,9 @@ public class HotBarController : MonoBehaviour
         }
         return false;
     }
-    public bool HoldingThis(Item ItemHeld)
+    public ItemData Holding()
     {
-        return ItemHeld != null && CurrentItemHeld != null &&
-            CurrentItemHeld.Data.Name == ItemHeld.Data.Name;
+        return CurrentItemHeld.Data;
     }
     void Awake()
     {

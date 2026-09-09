@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d81496aa62a6b54885645c1648c4932, type: 3}
+  m_Name: Wheat Seed Data
+  m_EditorClassIdentifier: Assembly-CSharp::ToolConfig
+  overrideController: {fileID: 22100000, guid: cacd8b1f2d730fd40b7c099117d56aa1, type: 2}
+  DefaultAnimator: {fileID: 0}
+  InteractUp: {fileID: 0}
+  InteractDown: {fileID: 0}
+  InteractLeft: {fileID: 0}
+  InteractRight: {fileID: 0}
+  Plants: {fileID: 1029943712980357948, guid: ee64c2c73e07bf4418762375821b94f0, type: 3}
+  Tooltype: 3

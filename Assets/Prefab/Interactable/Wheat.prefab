@@ -125,15 +125,15 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: -0.01459676, y: 0.41625428}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5625, y: 0.5625}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 3.875, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -166,14 +166,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b213e20075f46d14397a0a911a1ec89c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tree
-  Output1: {fileID: 196265600253205382, guid: 2eecffa3a3d978e4da53fe53d92bc957, type: 3}
-  Output2: {fileID: -6267036042989273903, guid: 5cae5571c7d0cfb42afcf2feed04cae7, type: 3}
-  OutputRandom: {fileID: 196265600253205382, guid: 2eecffa3a3d978e4da53fe53d92bc957, type: 3}
-  amount1: 0
+  Output1: {fileID: 8526962545171102189, guid: 9946da0d4441abb409cfe9cf6683371d, type: 3}
+  Output2: {fileID: 0}
+  OutputRandom: {fileID: -6267036042989273903, guid: 7ac9f7aac882d52428063f1037b60a34, type: 3}
+  amount1: 1
   amount2: 1
   min: 5
   max: 10
-  DataBase: {fileID: 0}
+  ToolRequired: []
+  Type: 0
 --- !u!114 &-7688454038746912157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,5 +194,4 @@ MonoBehaviour:
   - {fileID: -3344045518596502063, guid: 7b402453dcd01994f987917f91ec89d7, type: 3}
   TimeGrown: 0
   TimeRequired: 5
-  Harvestable: 0
   Soil: {fileID: 11400000, guid: 33d6b13ee1f87644c87986113ff89ff1, type: 2}

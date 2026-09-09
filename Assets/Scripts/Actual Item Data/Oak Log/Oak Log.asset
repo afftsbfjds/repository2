@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02a3a0bafe6eb734e9900d6be927532e, type: 3}
+  m_Name: Oak Log
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  owner: {fileID: 0}
+  icon: {fileID: -226382727, guid: 5689dc47a4b013840b66fb01fea2e4b2, type: 3}
+  Name: Oak Log
+  maxStack: 99
+  isStackable: 1
+  config: {fileID: 0}
+  behavior: {fileID: 11400000, guid: edc29244934cad34691d2aee83e314e3, type: 2}
+  type: 1

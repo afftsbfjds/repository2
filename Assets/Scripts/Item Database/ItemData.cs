@@ -1,15 +1,16 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ItemData", menuName = "Scriptable Objects/ItemData")]
+[CreateAssetMenu(fileName = "ItemData", menuName = "Scriptable Objects/itemdata")]
 public class ItemData : ScriptableObject
 {
-    private Item owner;
+    public int ID;
+    [HideInInspector]public Item owner; 
     public Sprite icon;
     public string Name;
     public int maxStack = 99;
     public bool isStackable = true;
-    public ToolInteract Interact;
-
+    public BehaviorConfig config;
+    public ItemBehavior behavior;
     public enum ITEMTYPE
     {
         Tool,

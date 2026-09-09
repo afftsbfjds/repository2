@@ -1,0 +1,19 @@
+{
+    "RecipeName": "Axe",
+    "Ingredient":
+    [
+        {
+            "IngredientID": 2,
+            "QuantityIN":1
+        },
+        {
+            "IngredientID":1,
+            "QuantityIN":2
+        }
+    ],
+    "Result":
+    {
+        "ItemOUTID": 3,
+        "QuantityOUT": 1
+    }
+}

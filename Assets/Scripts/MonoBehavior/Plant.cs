@@ -9,9 +9,11 @@ public class Plant : MonoBehaviour
     private Sprite currentState;
     [SerializeField] private float TimeGrown;
     [SerializeField] private float TimeRequired;
-    public bool Harvestable;
     [SerializeField] private Tile Soil;
-
+    private void Start()
+    {
+        GetComponent<Interactable>().enabled = false;
+    }
     private void RefreshVisual()
     {
         this.GetComponent<SpriteRenderer>().sprite = currentState;
@@ -23,7 +25,7 @@ public class Plant : MonoBehaviour
 
         if(GrowthState[GrowthState.Length-1] == currentState)
         {
-            Harvestable = true;
+            GetComponent<Interactable>().enabled = true;
         }
         else
         {

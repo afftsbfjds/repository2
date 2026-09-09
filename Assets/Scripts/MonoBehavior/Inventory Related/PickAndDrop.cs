@@ -24,13 +24,14 @@ public class PickAndDrop : MonoBehaviour
         {
             return;
         }
+        ItemPopUpMenu.Instance.AddNewPopUp(physicalItem.Data);
         ///                 IF NOT FOUND ITEM OR ITEM HAS NOT WRITTEN DATA THEN END
 
         Item item = Instantiate(ItemPrefab).GetComponent<Item>();
-        item.Data = Instantiate(physicalItem.Data);
+        item.Data = physicalItem.Data;
         item.NumbersOfItem = amount;
         item.visualUpdate();
-        if (InventoryController.Instance.SetItem(item))
+        if (InventoryController.Instance.SetItem(item,item.NumbersOfItem))
         {
             Destroy(physicalItem.gameObject);
         }
@@ -40,11 +41,29 @@ public class PickAndDrop : MonoBehaviour
         }
     }
 
-    public void DropItem(ItemData Data)
+    public void DropItem(Item item,int amount,Vector3 pos)
     {
-        PhysicalItem PhysItem = Instantiate(PhysicalPrefab).GetComponent<PhysicalItem>();
-        PhysItem.Data = Instantiate(Data);
+        GameObject player = GameObject.Find("Player");
+        if (player == null || item == null || PhysicalPrefab == null)
+        {
+            return;
+        }
+
+        if(item.Data==null || PhysicalPrefab == null || amount <= 0)
+        {
+            Debug.LogWarning("THIS ITEM'S DATA HAS NOT BEEN SET!");
+            return;
+        }
+        GameObject RealItem = Instantiate(PhysicalPrefab);
+        RealItem.transform.position = pos;
+        PhysicalItem PhysItem = RealItem.GetComponent<PhysicalItem>();
+        PhysItem.Data = item.Data;
+        PhysItem.NumbersOfItem = amount;
         PhysItem.visualUpdate();
+        if (item.gameObject != null && item.gameObject.scene.IsValid())
+        {
+            Destroy(item.gameObject);
+        }
     }
 
 }

@@ -144,7 +144,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -165,8 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103263bfe27d81047a0b2a2d2cb22dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PhysicalItem
-  PI_icon: {fileID: -1180104470, guid: 5689dc47a4b013840b66fb01fea2e4b2, type: 3}
-  Stack: 1
-  ItemName: Seed Bag
+  Data: {fileID: 11400000, guid: 46b66b5c6d3bc4b448b2ebb1eea7c78b, type: 2}
   ItemPrefab: {fileID: 821378285017295265, guid: 5f7e755666011a844bd82bcac982edef, type: 3}
-  DataBase: {fileID: 11400000, guid: 4c42d9281574fd941bd2a7d279cb5d62, type: 2}
+  NumbersOfItem: 0

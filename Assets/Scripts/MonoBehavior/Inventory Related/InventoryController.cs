@@ -5,6 +5,7 @@ public class InventoryController : MonoBehaviour
 {
     [SerializeField] private GameObject Slot;
     [SerializeField] private GameObject parentsMenu;
+    [SerializeField] private GameObject Hotbar;
     [SerializeField] private int Inventorysize;
     public Item PrefabItem;
     [SerializeField] private GameObject PauseMenu;
@@ -27,14 +28,14 @@ public class InventoryController : MonoBehaviour
         {
             GameObject slot = Instantiate(Slot,parentsMenu.transform);
 
-        }   ///                         SET ITEM                        ///
+        }
 
         
         PauseMenu.gameObject.SetActive(false);
 
     }
-
-    public bool SetItem(Item item)
+///                                     SET ITEM                /////////////////////////////////////////
+    public bool SetItem(Item item,int amount)
     {
         if (item == null || item.Data == null)
         {
@@ -42,24 +43,26 @@ public class InventoryController : MonoBehaviour
         }
 
         ///                                 CHECK FOR DUPLICATE                              ///
-        foreach(Transform Slots in parentsMenu.transform)
+        Item DupeItem = null;
+        if (ItemInInven(item, parentsMenu) != null)
         {
-            Slot slot = Slots.GetComponent<Slot>();
-            if (slot == null || slot.currentitem == null || slot.currentitem.Data == null ||
-                slot.currentitem.Data.Name != item.Data.Name)
-            {
-                continue;
-            }
-            if(slot.currentitem.NumbersOfItem+item.NumbersOfItem > slot.currentitem.Data.maxStack)
-                break;
-            slot.currentitem.NumbersOfItem += item.NumbersOfItem;
+            DupeItem = ItemInInven(item,parentsMenu);
+        }
+        if (ItemInInven(item, Hotbar) != null)
+        {
+            DupeItem = ItemInInven(item,Hotbar);
+        }
+        if(DupeItem != null && DupeItem.Data.isStackable && DupeItem.NumbersOfItem<=DupeItem.Data.maxStack)/// IF NO DUPE OR REACH MAXIMUM STACK, SKIP
+        {
+            Debug.Log("ITEM DUPE");
+            DupeItem.NumbersOfItem+=amount;
             Destroy(item.gameObject);
-            slot.currentitem.visualUpdate();
             return true;
         }
+        
 
         ///                                 CHECK FOR DUPLICATE                              ///
-        /// 
+
 
         ///                                     Set Item                                     ///
         
@@ -71,6 +74,7 @@ public class InventoryController : MonoBehaviour
                 continue;
             }
             item.gameObject.transform.SetParent(Slots1);
+            item.transform.localPosition = new Vector2(0,0);
             slot1.currentitem = item;
             item.visualUpdate();
             return true;
@@ -92,7 +96,26 @@ public class InventoryController : MonoBehaviour
 
 
 
-
+private Item ItemInInven(Item item,GameObject menu)
+    {
+        if(menu==null || item==false)
+            return null;
+        foreach(Transform invenslot in menu.transform)
+        {
+            if(invenslot == null)
+                return null;
+            Slot Slot1 = invenslot.GetComponent<Slot>();
+            if(Slot1==null || Slot1.currentitem==null || Slot1.currentitem.Data ==null
+             || Slot1.currentitem.Data.ID !=item.Data.ID || !Slot1.currentitem.Data.isStackable)
+            {
+                ///CANNOT STACK OR NO DUPLICATE
+                continue;
+            }
+            ///CAN STACK OR DUPLICATE
+            return Slot1.currentitem;
+        }
+        return null;
+    }
 
 
     

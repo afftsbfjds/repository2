@@ -19,6 +19,15 @@ public class TileMap : MonoBehaviour
         }
         
         Instance = this;
+        if (Map == null)
+        {
+            Debug.LogError("TileMap.Map is not assigned and no Tilemap exists in the active scene.", this);
+        }
+        
+        if (Map == null)
+        {
+            Debug.LogError("TileMap.Map is not assigned.", this);
+        }
     }
 
     public void ChangeTile(Tile tile,Vector3Int TileLocation)

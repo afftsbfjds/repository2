@@ -166,11 +166,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   Output1: {fileID: 0}
-  Output2: {fileID: -6267036042989273903, guid: 5cae5571c7d0cfb42afcf2feed04cae7, type: 3}
-  OutputRandom: {fileID: 196265600253205382, guid: 2eecffa3a3d978e4da53fe53d92bc957, type: 3}
+  Output2: {fileID: 3592855229643418395, guid: 51ee0bba4ed8194438ce83fd6a59fd0d, type: 3}
+  OutputRandom: {fileID: 3592855229643418395, guid: 51ee0bba4ed8194438ce83fd6a59fd0d, type: 3}
   amount1: 0
   amount2: 1
   min: 5
   max: 10
-  toolreq: {fileID: -8286833711422582587, guid: 51ee0bba4ed8194438ce83fd6a59fd0d, type: 3}
+  ToolRequired:
+  - {fileID: 11400000, guid: 00e256f143e0d58409cbf6cf994db33a, type: 2}
   Type: 0
