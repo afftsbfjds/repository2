@@ -22,7 +22,6 @@ public class ItemData : ScriptableObject
 
     private void Start()
     {
-        
     }
 
 }

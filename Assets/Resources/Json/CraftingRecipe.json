@@ -1,19 +1,75 @@
 {
-    "RecipeName": "Axe",
-    "Ingredient":
-    [
+
+
+    "Recipe" :[
         {
-            "IngredientID": 2,
-            "QuantityIN":1
+
+            "RecipeName": "Axe",
+            "ingredients":
+            [
+                {
+                    "IngredientID": 2,
+                    "QuantityIN":1
+                },
+                {
+                    "IngredientID":1,
+                    "QuantityIN":2
+                }
+            ],
+            "result":
+            {
+                "ItemOUTID": 0,
+                "QuantityOUT": 1
+            }
         },
+
         {
-            "IngredientID":1,
-            "QuantityIN":2
+            "RecipeName": "Seed",
+            "ingredients":
+            [
+                {
+                    "IngredientID": 2,
+                    "QuantityIN":1
+                },
+                {
+                    "IngredientID":1,
+                    "QuantityIN":2
+                }
+            ],
+            "result":
+            {
+                "ItemOUTID": 1,
+                "QuantityOUT": 1
+            }
         }
-    ],
-    "Result":
-    {
-        "ItemOUTID": 3,
-        "QuantityOUT": 1
-    }
+    ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+[System.Serializable]
 public class RecipeData
 {
     public string RecipeName;
@@ -7,29 +7,15 @@ public class RecipeData
     public Result result;
 
 
-    public RecipeData()
-    {
-        TextAsset CraftingRecipe = Resources.Load<TextAsset>("Json/CraftingRecipe");
 
-        if(CraftingRecipe==null)
-        {
-            Debug.LogWarning("Crafting recipe not loaded!");
-            return;
-        }
-
-        JsonUtility.FromJsonOverwrite(CraftingRecipe.text, this);
-
-        Debug.Log(RecipeName);
-
-    }
 }
-
+[System.Serializable]
 public class Ingredient
 {
     public int IngredientID;
     public int QuantityIN;
-}
-
+} 
+[System.Serializable]
 public class Result
 {
     public int ItemOUTID;

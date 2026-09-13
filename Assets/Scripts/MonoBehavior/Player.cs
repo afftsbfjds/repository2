@@ -89,13 +89,11 @@ public class Player : MonoBehaviour
     {
         ///     SET CD
         if(!CanInteract){
-            Debug.LogWarning("CANNOT INTERACT!");
             return;
         }
         ///     SET CD
         if (TileMap.Instance == null || TileMap.Instance.Map == null)
         {
-            Debug.LogWarning("MAP NOT LOADED!");
             return;
         }
 
@@ -121,7 +119,6 @@ public class Player : MonoBehaviour
 
         CanInteract=false;
         CDTimer = CoolDown;
-        Debug.Log("INTERACT NOW");
         if(priority is GameObject gameobject)              /// TARGETTING OBJECT, OBJECT BRANCH
         {
             Interactable Object = gameobject.GetComponent<Interactable>();

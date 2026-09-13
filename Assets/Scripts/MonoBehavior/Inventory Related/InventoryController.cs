@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class InventoryController : MonoBehaviour
 {
     [SerializeField] private GameObject Slot;
-    [SerializeField] private GameObject parentsMenu;
-    [SerializeField] private GameObject Hotbar;
+    public GameObject parentsMenu;
+    public GameObject Hotbar;
     [SerializeField] private int Inventorysize;
     public Item PrefabItem;
     [SerializeField] private GameObject PauseMenu;
@@ -52,7 +52,7 @@ public class InventoryController : MonoBehaviour
         {
             DupeItem = ItemInInven(item,Hotbar);
         }
-        if(DupeItem != null && DupeItem.Data.isStackable && DupeItem.NumbersOfItem<=DupeItem.Data.maxStack)/// IF NO DUPE OR REACH MAXIMUM STACK, SKIP
+        if(DupeItem != null && DupeItem.Data == item.Data && DupeItem.Data.isStackable && DupeItem.NumbersOfItem<=DupeItem.Data.maxStack)/// IF NO DUPE OR REACH MAXIMUM STACK, SKIP
         {
             Debug.Log("ITEM DUPE");
             DupeItem.NumbersOfItem+=amount;
@@ -96,7 +96,7 @@ public class InventoryController : MonoBehaviour
 
 
 
-private Item ItemInInven(Item item,GameObject menu)
+public Item ItemInInven(Item item,GameObject menu)
     {
         if(menu==null || item==false)
             return null;

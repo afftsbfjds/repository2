@@ -9,6 +9,7 @@ public class ToolConfig : BehaviorConfig
     public AnimationClip InteractDown;
     public AnimationClip InteractLeft;
     public AnimationClip InteractRight;
+
     public enum ToolType
     {
         Harvest,
