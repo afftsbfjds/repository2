@@ -1,10 +1,11 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "SeedBehavior", menuName = "Scriptable Objects/itembehavior/ToolBehavior/SeedBehavior")]
 public class SeedBehavior : ToolBehavior
 {
-    [SerializeField] private TileBase PlantingTile;
+    [SerializeField] private TileBase[] PlantingTile;
     public override void Use( GameObject target,Vector3Int TargetTileloc)
     {
         if(HotBarController.Instance == null ||
@@ -35,10 +36,10 @@ public class SeedBehavior : ToolBehavior
             return;
         }
         TileBase targetTile = TileMap.Instance.Map.GetTile(TargetTileloc);      //PLANTING PLACE
-        if (targetTile != PlantingTile)
+        if (!PlantingTile.Contains<TileBase>(targetTile))
         {
-            Debug.Log("SeedBehavior.Use: Cannot Plant Here!");
-            return;
+            Debug.Log("CANT PLANT HERE!");
+            return ;
         }
         Vector3 PlantPos = TileMap.Instance.Map.GetCellCenterWorld(TargetTileloc); //plant position
         if(ToolData.Plants == null)

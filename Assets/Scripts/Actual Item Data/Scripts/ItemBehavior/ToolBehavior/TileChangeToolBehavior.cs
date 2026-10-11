@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -28,6 +29,11 @@ public class TileChangeToolBehavior : ToolBehavior
             return;
         }
         TileBase targetTile = TileMap.Instance.Map.GetTile(targetTileloc);
+        if (!ToolData.RequiredTile.Contains<TileBase>(targetTile))
+        {
+            Debug.Log("CANNOT INTERACT WITH THIS TILE!");
+            return;
+        }
 
         ///                             FUNCTION START HERE
         

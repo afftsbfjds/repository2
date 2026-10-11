@@ -12,7 +12,7 @@
                     "QuantityIN":1
                 },
                 {
-                    "IngredientID":1,
+                    "IngredientID":2,
                     "QuantityIN":2
                 }
             ],
@@ -22,6 +22,7 @@
                 "QuantityOUT": 1
             }
         },
+
 
         {
             "RecipeName": "Seed",
@@ -39,6 +40,28 @@
             "result":
             {
                 "ItemOUTID": 1,
+                "QuantityOUT": 1
+            }
+        },
+
+
+        {
+
+            "RecipeName": "Watering Can",
+            "ingredients":
+            [
+                {
+                    "IngredientID": 2,
+                    "QuantityIN":1
+                },
+                {
+                    "IngredientID":3,
+                    "QuantityIN":2
+                }
+            ],
+            "result":
+            {
+                "ItemOUTID": 4,
                 "QuantityOUT": 1
             }
         }

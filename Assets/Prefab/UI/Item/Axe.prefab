@@ -91,8 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87a4583218cebb847a4bdc4368ef6097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  PrefabPhysicalObject: {fileID: 3095826236676969625, guid: 4f62e93a88394984983f9b75afd1152d, type: 3}
-  TextPrefab: {fileID: 0}
   NumbersOfItem: 1
   Data: {fileID: 11400000, guid: 20cd2ea847aa4114db01bc50c682f993, type: 2}
 --- !u!114 &7116610449614548053

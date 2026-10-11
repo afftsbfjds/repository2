@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SeedBehavior
   BehaviorOwner: {fileID: 0}
   ToolData: {fileID: 11400000, guid: dd6073c43882f98429d5a93078dd32be, type: 2}
-  PlantingTile: {fileID: 11400000, guid: e1f6a8fb8a47243478351041ea9d5af5, type: 2}
+  PlantingTile:
+  - {fileID: 11400000, guid: e1f6a8fb8a47243478351041ea9d5af5, type: 2}
+  - {fileID: 11400000, guid: 42cf56de088c4f544a8a3a33b976c7a0, type: 2}

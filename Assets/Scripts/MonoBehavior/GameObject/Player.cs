@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     private Vector3 ObjectPos;
     [SerializeField] float InteractRange;
 
+    private Item ToolHeld;
+
     [Space]
     [Space]
     [Space]
@@ -119,6 +121,8 @@ public class Player : MonoBehaviour
 
         CanInteract=false;
         CDTimer = CoolDown;
+
+        ToolHeld = HotBarController.Instance.CurrentItemHeld;
         if(priority is GameObject gameobject)              /// TARGETTING OBJECT, OBJECT BRANCH
         {
             Interactable Object = gameobject.GetComponent<Interactable>();
@@ -178,6 +182,13 @@ public class Player : MonoBehaviour
 
     public void StopTool()
     {
+        if(HotBarController.Instance.CurrentItemHeld != ToolHeld)
+        {
+            toolUseActive = false;
+            animator.SetBool("UseTool",false);
+            CANMOVE = true;
+            return;
+        }
         if (!toolUseActive)
             return;
 

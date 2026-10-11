@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "ToolConfig", menuName = "Scriptable Objects/ItemData/ToolConfig")]
 public class ToolConfig : BehaviorConfig
@@ -27,6 +28,11 @@ public class ToolConfig : BehaviorConfig
     {
         DefaultAnimator = animator;
     }
+    [Space]
+    [Space]
+    [Space]
+    [Header("TileChange")]
+    public TileBase[] RequiredTile;
 
     public ToolType Tooltype;
 }

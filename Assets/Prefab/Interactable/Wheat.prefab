@@ -102,7 +102,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029943712980357948}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b213e20075f46d14397a0a911a1ec89c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tree
-  Output1: {fileID: 8526962545171102189, guid: 9946da0d4441abb409cfe9cf6683371d, type: 3}
+  Output1: {fileID: 0}
   Output2: {fileID: 0}
   OutputRandom: {fileID: -6267036042989273903, guid: 7ac9f7aac882d52428063f1037b60a34, type: 3}
   amount1: 1
@@ -192,6 +192,9 @@ MonoBehaviour:
   - {fileID: 7721948593928372617, guid: 7b402453dcd01994f987917f91ec89d7, type: 3}
   - {fileID: 5263938983912154612, guid: 7b402453dcd01994f987917f91ec89d7, type: 3}
   - {fileID: -3344045518596502063, guid: 7b402453dcd01994f987917f91ec89d7, type: 3}
+  DeathState: {fileID: 1335262841874580134, guid: 6b6be5fe3936ea449a0894a0fece0a36, type: 3}
   TimeGrown: 0
   TimeRequired: 5
-  Soil: {fileID: 11400000, guid: 33d6b13ee1f87644c87986113ff89ff1, type: 2}
+  WaterReqTimer: 10
+  Soil: {fileID: 11400000, guid: e1f6a8fb8a47243478351041ea9d5af5, type: 2}
+  WateredSoil: {fileID: 11400000, guid: 42cf56de088c4f544a8a3a33b976c7a0, type: 2}

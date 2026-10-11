@@ -52,7 +52,7 @@ public class InventoryController : MonoBehaviour
         {
             DupeItem = ItemInInven(item,Hotbar);
         }
-        if(DupeItem != null && DupeItem.Data == item.Data && DupeItem.Data.isStackable && DupeItem.NumbersOfItem<=DupeItem.Data.maxStack)/// IF NO DUPE OR REACH MAXIMUM STACK, SKIP
+        if(DupeItem != null && DupeItem.Data == item.Data && DupeItem.Data.isStackable)/// IF NO DUPE OR REACH MAXIMUM STACK, SKIP
         {
             Debug.Log("ITEM DUPE");
             DupeItem.NumbersOfItem+=amount;
@@ -106,7 +106,7 @@ public Item ItemInInven(Item item,GameObject menu)
                 return null;
             Slot Slot1 = invenslot.GetComponent<Slot>();
             if(Slot1==null || Slot1.currentitem==null || Slot1.currentitem.Data ==null
-             || Slot1.currentitem.Data.ID !=item.Data.ID || !Slot1.currentitem.Data.isStackable)
+             || Slot1.currentitem.Data !=item.Data)
             {
                 ///CANNOT STACK OR NO DUPLICATE
                 continue;

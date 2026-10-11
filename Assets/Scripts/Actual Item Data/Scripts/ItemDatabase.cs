@@ -3,27 +3,26 @@ public class ItemDatabase : MonoBehaviour
 {
     public static ItemDatabase Instance {get ; set;}
 
-    public ItemData[] database;
+    public Item[] database;
 
-    public RecipeManager manager = new RecipeManager();
+    public RecipeManager manager = new RecipeManager();         /// RECIPE MANAGER
 
-
-    private void Awake()
+    public Item LookUp(int ID)
     {
+        return database[ID];
+    }
+    public void Awake()
+    {
+
         if(Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
         Instance = this;
-    }
+        ///     CREATE SINGLETON
 
-    public ItemData LookUp(int ID)
-    {
-        return database[ID];
-    }
-    public void Start()
-    {
+
         if(manager == null)
         {
             return;
@@ -76,7 +75,7 @@ public class ItemDatabase : MonoBehaviour
                 Debug.Log("INGREDIENTS NOT LOADED!");
                 return;
             }
-            Debug.Log(LookUp(recipe.result.ItemOUTID).Name);
+            Debug.Log(LookUp(recipe.result.ItemOUTID).Data.Name);
         }
     }
 }
